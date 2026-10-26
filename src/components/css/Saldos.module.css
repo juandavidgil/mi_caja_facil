@@ -1,0 +1,112 @@
+.Saldos {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 70%;
+}
+
+.SaldoDisponible {
+    flex: 1;
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.SaldoDisponible:hover {
+    transform: translateY(-5px);
+}
+
+.TotalGastos {
+    flex: 1;
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.TotalGastos:hover {
+    transform: translateY(-5px);
+}
+
+.cardTitulo {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.cardValor {
+    margin: 15px 0;
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.cardFecha {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.cardIcon {
+    font-size: 35px;
+    opacity: .25;
+    margin-bottom: 15px;
+}
+
+.SaldoDisponible,
+.TotalGastos {
+    position: relative;
+    overflow: hidden;
+}
+
+.SaldoDisponible::before,
+.TotalGastos::before {
+    content: '';
+
+    position: absolute;
+
+    width: 200%;
+    height: 200%;
+
+    top: -100%;
+    left: -100%;
+
+    background:
+        linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, .15),
+            transparent);
+
+    transition: .8s;
+}
+
+.SaldoDisponible:hover::before,
+.TotalGastos:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .Saldos {
+        flex-direction: column;
+    }
+
+    .secciones {
+        flex-direction: column;
+    }
+
+    .balance,
+    .transacciones {
+        width: 100%;
+    }
+
+}

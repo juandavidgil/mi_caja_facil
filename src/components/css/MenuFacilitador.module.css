@@ -1,0 +1,97 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding: 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 700;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    transition: all 0.25s ease;
+}
+
+.link:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.active {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+}
+
+.link img,
+.active img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.link span,
+.active span {
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.logo {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+
+}
