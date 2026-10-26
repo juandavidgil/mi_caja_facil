@@ -8,8 +8,8 @@ import {
   FaExchangeAlt
 } from "react-icons/fa";
 import style from "../css/Inicio.module.css";
-import CajaId from "../../components/CajaId";
-import Saldos from "../../components/Saldos";
+import CajaId from "../../../components/CajaId";
+import Saldos from "../../../components/Saldos";
 function Inicio() {
   return (
     <div className={style.container}>

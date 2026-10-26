@@ -1,5 +1,5 @@
 import React from "react";
-import   MenuFaciusuario  from "../../components/MenuFacilitador"
+import   MenuFaciusuario  from "../../../components/MenuFacilitador"
 function LoginFacilitador() {
     return (
         <div>

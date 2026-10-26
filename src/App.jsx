@@ -7,17 +7,17 @@ import {
 import LayoutFacilitador from './LayoutFacilitador';
 import LayoutFaciusuario from './LayoutFaciusuario';
 /* FACILITADOR */
-import LoginFacilitador from "./pages/Facilitador/LoginFacilitador";
-import Inicio from './pages/Facilitador/Inicio';
-import Movimientos from './pages/Facilitador/Movimientos';
-import Fondos from './pages/Facilitador/Fondos';
-import Reportes from './pages/Facilitador/Reportes';
-import Ajustes from './pages/Facilitador/Ajustes';
+import LoginFacilitador from "./modules/Facilitador/pages/LoginFacilitador";
+import Inicio from './modules/Facilitador/pages/Inicio';
+import Movimientos from './modules/Facilitador/pages/Movimientos';
+import Fondos from './modules/Facilitador/pages/Fondos';
+import Reportes from './modules/Facilitador/pages/Reportes';
+import Ajustes from './modules/Facilitador/pages/Ajustes';
 
 /* FACIUSUARIO */
-import LoginFaciusuario from './pages/Faciusuario/LoginFaciusuario';
-import InicioFaciusuario from './pages/Faciusuario/InicioFaciusuario';
-import Legalizacion from './pages/Faciusuario/Legalizacion';
+import LoginFaciusuario from './modules/Faciusuario/pages/LoginFaciusuario';
+import InicioFaciusuario from './modules/Faciusuario/pages/InicioFaciusuario';
+import Legalizacion from './modules/Faciusuario/pages/Legalizacion';
 
 function App() {
   return (

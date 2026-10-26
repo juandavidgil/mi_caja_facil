@@ -1,6 +1,6 @@
 import { motion, useScroll } from "framer-motion";
 import style from "../css/Ajustes.module.css";
-import usuario from "../../assets/usuario.png"
+import usuario from "../../../assets/usuario.png"
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Switch from '@mui/material/Switch';

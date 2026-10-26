@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import style from '../css/Legalizacion.module.css'
-import CajaId from '../../components/CajaId';
+import CajaId from '../../../components/CajaId';
 import TextField from '@mui/material/TextField';
 
 function Legalizacion() {

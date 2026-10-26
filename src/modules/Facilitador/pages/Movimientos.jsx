@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 
 import style from "../css/Movimientos.module.css";
-import CajaId from "../../components/CajaId";
+import CajaId from "../../../components/CajaId";
 
 function Movimientos() {
 

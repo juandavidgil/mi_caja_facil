@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import style from "../css/Reportes.module.css";
-import CajaId from "../../components/CajaId";
-import papeleria from "../../assets/papeleria.png";
-import transporte from "../../assets/transporte.png";
-import alimentacion from "../../assets/alimentacion.png";
-import otros from "../../assets/otros.png";
+import CajaId from "../../../components/CajaId";
+import papeleria from "../../../assets/papeleria.png";
+import transporte from "../../../assets/transporte.png";
+import alimentacion from "../../../assets/alimentacion.png";
+import otros from "../../../assets/otros.png";
 function Reportes() {
 
     const resumenTipo = [
