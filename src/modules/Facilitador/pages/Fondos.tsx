@@ -2,8 +2,8 @@ import style from "../css/Fondos.module.css";
 import { motion } from "framer-motion";
 import CajaId from "../../../components/CajaId";
 import Saldos from "../../../components/Saldos";
-import arqueo from "../../../assets/arqueo.png"
-import TextField from '@mui/material/TextField';
+import arqueo from "../../../assets/arqueo.png";
+import TextField from "@mui/material/TextField";
 
 function Fondos() {
     return (
