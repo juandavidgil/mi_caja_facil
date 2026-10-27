@@ -1,0 +1,459 @@
+
+.loginPage {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 48px 20px 240px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      #0752c8 0%,
+      #0648b7 55%,
+      #0642a8 100%
+    );
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.loginPage *,
+.loginPage *::before,
+.loginPage *::after {
+  box-sizing: border-box;
+}
+
+
+/* Paisaje de Bogotá */
+.paisaje {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: clamp(180px, 31vh, 300px);
+
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% 100%;
+
+  pointer-events: none;
+}
+
+
+/* Encabezado de marca */
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 650px;
+  margin: 28px auto 32px;
+}
+
+.logoIcono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 92px;
+  height: 92px;
+  border: 2px solid rgb(255 255 255 / 75%);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff, #dceaff);
+  color: #1045ad;
+  box-shadow: 0 8px 25px rgb(0 25 90 / 20%);
+}
+
+.logoIcono svg {
+  width: 62px;
+  height: 62px;
+}
+
+.marca {
+  min-width: 0;
+}
+
+.logoTexto {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  white-space: nowrap;
+}
+
+.logoTexto span {
+  color: #ffb51b;
+}
+
+.submarca {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.lineaAmarilla {
+  display: block;
+  width: 48px;
+  height: 4px;
+  border-radius: 10px;
+  background: #ffb51b;
+}
+
+.submarca p {
+  margin: 0;
+  color: #edf4ff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+/* Tarjeta de acceso */
+.loginContenido {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 435px;
+  padding: 30px 38px;
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 19px;
+  background: #ffffff;
+  color: #102b63;
+  box-shadow:
+    0 20px 60px rgb(0 25 90 / 20%),
+    0 3px 10px rgb(0 25 90 / 8%);
+}
+
+.formularioEncabezado {
+  margin-bottom: 3px;
+}
+
+.formularioEncabezado h2 {
+  margin: 0;
+  color: #102b63;
+  font-size: 31px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.formularioEncabezado p {
+  margin: 6px 0 0;
+  color: #647a9e;
+  font-size: 15px;
+}
+
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.recuperar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -5px;
+}
+
+.enlaceRecuperar {
+  padding: 3px 0;
+  border: none;
+  background: transparent;
+  color: #0649d8;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.enlaceRecuperar:hover {
+  text-decoration: underline;
+}
+
+.botonIngresar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 2px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #ffb51b, #ffb323);
+  color: #102b63;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.botonIngresar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgb(255 181 27 / 28%);
+  filter: brightness(1.03);
+}
+
+.botonIngresar:active {
+  transform: translateY(0);
+}
+
+.botonIngresar svg {
+  width: 16px;
+  height: 16px;
+}
+
+.separador {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1px 0;
+}
+
+.separador span {
+  flex: 1;
+  height: 1px;
+  background: #dbe5f4;
+}
+
+.separador p {
+  margin: 0;
+  color: #7184a6;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.botonUsuario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #c6d9ff;
+  border-radius: 10px;
+  background: #edf4ff;
+  color: #0649d8;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.botonUsuario:hover {
+  border-color: #8bb2ff;
+  background: #e1ecff;
+}
+
+.botonUsuario svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* Logo DATA TOOLS */
+.piePagina {
+  position: absolute;
+  right: 25px;
+  bottom: clamp(100px, 15vh, 150px);
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logoData {
+  display: block;
+  width: 125px;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+/* Accesibilidad */
+.botonIngresar:focus-visible,
+.botonUsuario:focus-visible,
+.enlaceRecuperar:focus-visible {
+  outline: 3px solid #ffb51b;
+  outline-offset: 4px;
+}
+
+/* Tablets y portátiles pequeños */
+@media (max-width: 700px) {
+  .loginPage {
+    padding: 35px 18px 200px;
+  }
+
+  .encabezado {
+    gap: 14px;
+    margin-top: 20px;
+    margin-bottom: 28px;
+  }
+
+  .logoIcono {
+    width: 66px;
+    height: 66px;
+    border-radius: 15px;
+  }
+
+  .logoIcono svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logoTexto {
+    font-size: clamp(27px, 5.5vw, 40px);
+    letter-spacing: -1px;
+  }
+
+  .submarca {
+    gap: 6px;
+    margin-top: 7px;
+  }
+
+  .submarca p {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .formulario {
+    max-width: 410px;
+    padding: 27px 25px;
+  }
+
+  .paisaje {
+    height: 210px;
+    background-size: auto 100%;
+  }
+
+  .piePagina {
+    right: 15px;
+    bottom: 75px;
+  }
+
+  .logoData {
+    width: 90px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 420px) {
+  .loginPage {
+    padding: 28px 14px 170px;
+  }
+
+  .encabezado {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .logoIcono {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+  }
+
+  .logoIcono svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .logoTexto {
+    font-size: clamp(24px, 7vw, 30px);
+    letter-spacing: -0.8px;
+  }
+
+  .submarca p {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .lineaAmarilla {
+    width: 35px;
+    height: 3px;
+  }
+
+  .formulario {
+    gap: 14px;
+    padding: 24px 19px;
+    border-radius: 16px;
+  }
+
+  .formularioEncabezado h2 {
+    font-size: 27px;
+  }
+
+  .formularioEncabezado p {
+    font-size: 13px;
+  }
+
+  .paisaje {
+    height: 155px;
+    background-size: auto 100%;
+  }
+
+  .piePagina {
+    right: 10px;
+    bottom: 45px;
+  }
+
+  .logoData {
+    width: 72px;
+  }
+}
+
+/* Pantallas con poca altura */
+@media (max-height: 700px) and (min-width: 701px) {
+  .loginPage {
+    padding-top: 15px;
+    padding-bottom: 170px;
+  }
+
+  .encabezado {
+    margin-top: 10px;
+    margin-bottom: 18px;
+  }
+
+  .logoIcono {
+    width: 65px;
+    height: 65px;
+  }
+
+  .logoIcono svg {
+    width: 43px;
+    height: 43px;
+  }
+
+  .formulario {
+    gap: 11px;
+    padding: 22px 30px;
+  }
+
+  .formularioEncabezado h2 {
+    font-size: 26px;
+  }
+
+  .paisaje {
+    height: 175px;
+  }
+}

@@ -65,11 +65,11 @@ function App() {
 
         </Route>
 
-        <Route element={<LayoutFaciusuario />}>
           <Route
             element={<InicioFaciusuario />}
             path='/inicio-faciusuario'
           />
+        <Route element={<LayoutFaciusuario />}>
         </Route>
         <Route
           element={<Legalizacion />}
