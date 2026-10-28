@@ -1,22 +1,28 @@
 
+/* ========================================
+   MI CAJA FÁCIL - LOGIN
+======================================== */
 .loginPage {
   position: relative;
   isolation: isolate;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  padding: 48px 20px 240px;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      ellipse at 50% 45%,
-      #0752c8 0%,
-      #0648b7 55%,
-      #0642a8 100%
-    );
-  color: #ffffff;
+
+  padding: 24px;
+  overflow-x: hidden;
+
+  background-color: #0648b7;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 100%;
+
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
@@ -27,52 +33,114 @@
   box-sizing: border-box;
 }
 
+.loginContenido {
+  position: relative;
+  z-index: 1;
 
-/* Paisaje de Bogotá */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin: 0;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  width: 100%;
+  max-width: 465px;
+
+  margin: 0 auto;
+  padding: 32px 38px;
+
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 19px;
+
+  background: #ffffff;
+  color: #102b63;
+
+  box-shadow: 0 20px 60px rgb(0 25 90 / 20%);
+}
+
+
+.loginPage *,
+.loginPage *::before,
+.loginPage *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   PAISAJE DE BOGOTÁ
+======================================== */
+
 .paisaje {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
+
   right: 0;
   bottom: 0;
   left: 0;
-  height: clamp(180px, 31vh, 300px);
+
+  width: 100%;
+  height: clamp(140px, 24vh, 240px);
 
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: 100% 100%;
+  background-size: auto 100%;
 
   pointer-events: none;
 }
 
+/* ========================================
+   ENCABEZADO Y MARCA
+======================================== */
 
-/* Encabezado de marca */
 .encabezado {
+  position: relative;
+  z-index: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
+
   width: 100%;
   max-width: 650px;
-  margin: 28px auto 32px;
+
+  margin: 10px auto 20px;
 }
 
 .logoIcono {
   display: flex;
   align-items: center;
   justify-content: center;
+
   flex-shrink: 0;
-  width: 92px;
-  height: 92px;
+
+  width: 85px;
+  height: 85px;
+
   border: 2px solid rgb(255 255 255 / 75%);
-  border-radius: 20px;
+  border-radius: 18px;
+
   background: linear-gradient(145deg, #ffffff, #dceaff);
-  color: #1045ad;
+
   box-shadow: 0 8px 25px rgb(0 25 90 / 20%);
 }
 
+.logoIcono img,
 .logoIcono svg {
-  width: 62px;
-  height: 62px;
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-width: 72px;
+  max-height: 72px;
+
+  object-fit: contain;
 }
 
 .marca {
@@ -81,11 +149,14 @@
 
 .logoTexto {
   margin: 0;
+
   color: #ffffff;
-  font-size: clamp(32px, 4.5vw, 52px);
+
+  font-size: clamp(30px, 4.5vw, 52px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1.8px;
+
   white-space: nowrap;
 }
 
@@ -98,48 +169,43 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 7px;
+
   margin-top: 10px;
 }
 
 .lineaAmarilla {
   display: block;
+
   width: 48px;
   height: 4px;
+
   border-radius: 10px;
   background: #ffb51b;
 }
 
 .submarca p {
   margin: 0;
+
   color: #edf4ff;
-  font-size: 12px;
+
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
 }
 
-/* Tarjeta de acceso */
-.loginContenido {
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+/* ========================================
+   CONTENEDOR DEL FORMULARIO
+======================================== */
 
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 435px;
-  padding: 30px 38px;
-  border: 1px solid rgb(255 255 255 / 75%);
-  border-radius: 19px;
-  background: #ffffff;
-  color: #102b63;
-  box-shadow:
-    0 20px 60px rgb(0 25 90 / 20%),
-    0 3px 10px rgb(0 25 90 / 8%);
-}
+
+
+/* ========================================
+   TARJETA BLANCA
+======================================== */
+
+
+
+/* Encabezado de la tarjeta */
 
 .formularioEncabezado {
   margin-bottom: 3px;
@@ -147,39 +213,53 @@
 
 .formularioEncabezado h2 {
   margin: 0;
+
   color: #102b63;
-  font-size: 31px;
+
+  font-size: 29px;
   font-weight: 800;
   letter-spacing: -0.8px;
 }
 
 .formularioEncabezado p {
   margin: 6px 0 0;
+
   color: #647a9e;
-  font-size: 15px;
+  font-size: 14px;
 }
+
+/* Campos reutilizables */
 
 .campos {
   display: flex;
   flex-direction: column;
   gap: 14px;
+
   width: 100%;
 }
+
+/* ========================================
+   RECUPERAR CONTRASEÑA
+======================================== */
 
 .recuperar {
   display: flex;
   justify-content: flex-end;
+
   margin-top: -5px;
 }
 
 .enlaceRecuperar {
   padding: 3px 0;
+
   border: none;
   background: transparent;
+
   color: #0649d8;
-  font: inherit;
+  font-family: inherit;
   font-size: 12px;
   font-weight: 600;
+
   cursor: pointer;
 }
 
@@ -187,21 +267,34 @@
   text-decoration: underline;
 }
 
+/* ========================================
+   BOTÓN INGRESAR
+======================================== */
+
 .botonIngresar {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
+
   width: 100%;
-  min-height: 50px;
+  min-height: 49px;
+
   margin-top: 2px;
+  padding: 12px;
+
   border: none;
   border-radius: 10px;
+
   background: linear-gradient(100deg, #ffb51b, #ffb323);
   color: #102b63;
+
+  font-family: inherit;
   font-size: 15px;
   font-weight: 700;
+
   cursor: pointer;
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -210,6 +303,7 @@
 
 .botonIngresar:hover {
   transform: translateY(-2px);
+
   box-shadow: 0 7px 18px rgb(255 181 27 / 28%);
   filter: brightness(1.03);
 }
@@ -223,40 +317,59 @@
   height: 16px;
 }
 
+/* ========================================
+   SEPARADOR
+======================================== */
+
 .separador {
   display: flex;
   align-items: center;
   gap: 12px;
+
   margin: 1px 0;
 }
 
 .separador span {
   flex: 1;
+
   height: 1px;
   background: #dbe5f4;
 }
 
 .separador p {
   margin: 0;
+
   color: #7184a6;
   font-size: 12px;
   white-space: nowrap;
 }
+
+/* ========================================
+   INGRESO FACIUSUARIO
+======================================== */
 
 .botonUsuario {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
+
   width: 100%;
   min-height: 48px;
+  padding: 10px;
+
   border: 1px solid #c6d9ff;
   border-radius: 10px;
+
   background: #edf4ff;
   color: #0649d8;
+
+  font-family: inherit;
   font-size: 14px;
   font-weight: 700;
+
   text-decoration: none;
+
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
@@ -272,25 +385,35 @@
   height: 19px;
 }
 
-/* Logo DATA TOOLS */
+/* ========================================
+   LOGO DATA TOOLS
+======================================== */
+
 .piePagina {
   position: absolute;
-  right: 25px;
-  bottom: clamp(100px, 15vh, 150px);
   z-index: 1;
+
+  right: 24px;
+  bottom: clamp(75px, 12vh, 125px);
+
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .logoData {
   display: block;
-  width: 125px;
-  max-height: 80px;
+
+  width: 115px;
+  max-height: 75px;
+
   object-fit: contain;
 }
 
-/* Accesibilidad */
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
 .botonIngresar:focus-visible,
 .botonUsuario:focus-visible,
 .enlaceRecuperar:focus-visible {
@@ -298,31 +421,35 @@
   outline-offset: 4px;
 }
 
-/* Tablets y portátiles pequeños */
+/* ========================================
+   TABLETS Y PORTÁTILES PEQUEÑOS
+======================================== */
+
 @media (max-width: 700px) {
   .loginPage {
-    padding: 35px 18px 200px;
+    padding: 25px 18px 170px;
   }
 
   .encabezado {
-    gap: 14px;
-    margin-top: 20px;
-    margin-bottom: 28px;
+    gap: 12px;
+    margin-top: 15px;
+    margin-bottom: 25px;
   }
 
   .logoIcono {
-    width: 66px;
-    height: 66px;
-    border-radius: 15px;
+    width: 65px;
+    height: 65px;
+    border-radius: 14px;
   }
 
+  .logoIcono img,
   .logoIcono svg {
-    width: 44px;
-    height: 44px;
+    max-width: 54px;
+    max-height: 54px;
   }
 
   .logoTexto {
-    font-size: clamp(27px, 5.5vw, 40px);
+    font-size: clamp(26px, 5.5vw, 40px);
     letter-spacing: -1px;
   }
 
@@ -333,74 +460,89 @@
 
   .submarca p {
     font-size: 9px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+  }
+
+  .loginContenido {
+    flex: 1 0 auto;
   }
 
   .formulario {
     max-width: 410px;
-    padding: 27px 25px;
+    padding: 26px 24px;
   }
 
   .paisaje {
-    height: 210px;
+    height: 190px;
     background-size: auto 100%;
   }
 
   .piePagina {
     right: 15px;
-    bottom: 75px;
+    bottom: 55px;
   }
 
   .logoData {
-    width: 90px;
+    width: 85px;
   }
 }
 
-/* Móviles */
+/* ========================================
+   MÓVILES
+======================================== */
+
 @media (max-width: 420px) {
   .loginPage {
-    padding: 28px 14px 170px;
+    padding: 22px 14px 145px;
   }
 
   .encabezado {
-    gap: 10px;
-    margin-bottom: 24px;
+    gap: 9px;
+    margin-top: 12px;
+    margin-bottom: 20px;
   }
 
   .logoIcono {
-    width: 52px;
-    height: 52px;
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 11px;
   }
 
+  .logoIcono img,
   .logoIcono svg {
-    width: 34px;
-    height: 34px;
+    max-width: 42px;
+    max-height: 42px;
   }
 
   .logoTexto {
-    font-size: clamp(24px, 7vw, 30px);
+    font-size: clamp(23px, 6.5vw, 30px);
     letter-spacing: -0.8px;
   }
 
+  .submarca {
+    gap: 5px;
+    margin-top: 6px;
+  }
+
   .submarca p {
-    font-size: 8px;
-    letter-spacing: 1.2px;
+    font-size: 7px;
+    letter-spacing: 1px;
   }
 
   .lineaAmarilla {
-    width: 35px;
+    width: 34px;
     height: 3px;
   }
 
   .formulario {
-    gap: 14px;
-    padding: 24px 19px;
+   
+    gap: 13px;
+    padding: 23px 18px;
     border-radius: 16px;
   }
 
   .formularioEncabezado h2 {
-    font-size: 27px;
+    font-size: 26px;
   }
 
   .formularioEncabezado p {
@@ -408,30 +550,37 @@
   }
 
   .paisaje {
-    height: 155px;
+    height: 140px;
     background-size: auto 100%;
   }
 
   .piePagina {
     right: 10px;
-    bottom: 45px;
+    bottom: 35px;
   }
 
   .logoData {
-    width: 72px;
+    width: 68px;
   }
 }
 
-/* Pantallas con poca altura */
-@media (max-height: 700px) and (min-width: 701px) {
-  .loginPage {
-    padding-top: 15px;
-    padding-bottom: 170px;
-  }
+/* ========================================
+   PANTALLAS DE ESCRITORIO CON POCA ALTURA
+======================================== */
 
+@media (max-height: 700px) and (min-width: 701px) {
+   .loginPage {
+
+    padding: 20px 16px;
+    background-size: auto 100%;
+  }
+.loginContenido {
+    width: 100%;
+   
+  }
   .encabezado {
-    margin-top: 10px;
-    margin-bottom: 18px;
+    margin-top: 5px;
+    margin-bottom: 14px;
   }
 
   .logoIcono {
@@ -439,21 +588,28 @@
     height: 65px;
   }
 
+  .logoIcono img,
   .logoIcono svg {
-    width: 43px;
-    height: 43px;
+    max-width: 52px;
+    max-height: 52px;
   }
 
-  .formulario {
-    gap: 11px;
-    padding: 22px 30px;
+   .formulario {
+    max-width: 420px;
+    padding: 26px 22px;
+    gap: 14px;
   }
 
   .formularioEncabezado h2 {
-    font-size: 26px;
+    font-size: 25px;
   }
 
   .paisaje {
-    height: 175px;
+    height: 150px;
+  }
+
+  .piePagina {
+    bottom: 65px;
   }
 }
+ 

@@ -8,10 +8,10 @@ import {
 
 import style from "../css/LoginFacilitador.module.css";
 import Input from "../../../components/Input";
+import fondo from "../../../assets/Mi Caja Fácil_ Bogotá iluminada_sin _f.png"
 
-import paisajeBogota from "../../../assets/bogota_1.png";
-import logoCaja from "../../../assets/caja_1.png";
-import logoData from "../../../assets/logo_1.png";
+
+
 
 function LoginFacilitador() {
   const navigate = useNavigate();
@@ -27,40 +27,16 @@ function LoginFacilitador() {
   };
 
   return (
-    <main className={style.loginPage}>
-
-      {/* Paisaje de Bogotá como fondo inferior */}
-      <div
-        className={style.paisaje}
-        style={{
-          backgroundImage: `url(${paisajeBogota})`,
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Encabezado de marca */}
-      <header className={style.encabezado}>
-
-        {/* Logo de la caja registradora */}
-        <div className={style.logoIcono}>
-          <img
-            src={logoCaja}
-            alt="Caja registradora"
-          />
-        </div>
-
-        {/* Nombre y eslogan */}
-        <div className={style.marca}>
-          <h1 className={style.logoTexto}>
-            Mi Caja <span>Fácil</span>
-          </h1>
-
-          <div className={style.submarca}>
-            <span className={style.lineaAmarilla} />
-            <p>TUS TRÁMITES. MÁS SIMPLES.</p>
-          </div>
-        </div>
-      </header>
+<main
+  className={style.loginPage}
+  style={{
+    backgroundImage: `url("${fondo}")`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    backgroundSize: "100%",
+  }}
+>
+  
 
       {/* Formulario de inicio de sesión */}
       <section
@@ -146,11 +122,7 @@ function LoginFacilitador() {
 
       {/* Logo de DATA TOOLS en la parte inferior derecha */}
       <footer className={style.piePagina}>
-        <img
-          src={logoData}
-          alt="DATA TOOLS"
-          className={style.logoData}
-        />
+        
       </footer>
 
     </main>
