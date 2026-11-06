@@ -1,6 +1,7 @@
 
-import React from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import {
   FaArrowRight,
   FaUsers,
@@ -9,43 +10,59 @@ import {
 import style from "../css/LoginFacilitador.module.css";
 import Input from "../../../components/Input";
 import fondo from "../../../assets/Mi Caja Fácil_ Bogotá iluminada_sin _f.png"
-
+import ModalPerfiles from "../../../components/ModalPerfiles";
 
 
 
 function LoginFacilitador() {
   const navigate = useNavigate();
 
-  const handleSubmit = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
-    event.preventDefault();
+  const [mostrarModal, setMostrarModal] = useState(false);
 
-    // Aquí conectaremos la autenticación cuando esté lista.
-    // Por ahora, continúa al inicio del facilitador.
-    navigate("/inicio");
+  // Abrir modal al ingresar
+  const Ingresar = () => {
+    setMostrarModal(true);
   };
 
-  return (
-<main
-  className={style.loginPage}
-  style={{
-    backgroundImage: `url("${fondo}")`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center center",
-    backgroundSize: "100%",
-  }}
->
-  
+  // Continuar después de seleccionar un perfil
+  const continuarConPerfil = (perfil: any) => {
+    setMostrarModal(false);
+
+    navigate("/inicio", {
+      state: { perfil },
+    });
+  };
+
+
+  return (<>
+    {mostrarModal && (
+      <ModalPerfiles
+        nombreUsuario="Facilitador"
+        onContinuar={continuarConPerfil}
+      />
+    )}
+
+    <main
+      className={style.loginPage}
+      style={{
+        backgroundImage: `url("${fondo}")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "100% 100%",
+      }}
+    >
+
+
+
+
 
       {/* Formulario de inicio de sesión */}
       <section
         className={style.loginContenido}
         aria-labelledby="titulo-login"
       >
-        <form
+        <div
           className={style.formulario}
-          onSubmit={handleSubmit}
         >
 
           <div className={style.formularioEncabezado}>
@@ -94,7 +111,7 @@ function LoginFacilitador() {
 
           {/* Botón de ingreso */}
           <button
-            type="submit"
+            onClick={Ingresar}
             className={style.botonIngresar}
           >
             <span>Ingresar</span>
@@ -117,15 +134,16 @@ function LoginFacilitador() {
             <span>Ingreso Faciusuario</span>
           </Link>
 
-        </form>
+        </div>
       </section>
 
       {/* Logo de DATA TOOLS en la parte inferior derecha */}
       <footer className={style.piePagina}>
-        
+
       </footer>
 
     </main>
+  </>
   );
 }
 

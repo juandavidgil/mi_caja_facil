@@ -1,0 +1,201 @@
+.pantalla {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    box-sizing: border-box;
+
+    /* Fondo degradado de Mi Caja Fácil */
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(0, 220, 255, 0.35),
+            transparent 40%
+        ),
+        linear-gradient(
+            120deg,
+            #087de8 0%,
+            #0648dc 45%,
+            #071b91 100%
+        );
+}
+
+.contenido {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+}
+
+.logo img {
+    width: 180px;
+    max-height: 85px;
+    object-fit: contain;
+}
+
+/* FORMULARIO */
+
+.containerFormulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 60%;
+    height: auto;
+    margin-left: 20%;
+    margin-bottom: 2%;
+    
+}
+
+.formulario {
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+
+    background: #02091f;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 7px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.formulario h1 {
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.descripcion {
+    margin: 12px 0 40px;
+    text-align: center;
+    color: #a9b7d0;
+    font-size: 14px;
+}
+
+/* CAMPOS */
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 25px;
+}
+
+.campo label {
+    color: #91a4c5;
+    font-size: 12px;
+}
+
+.campo input {
+    width: 100%;
+    height: 42px;
+    padding: 0 13px;
+    box-sizing: border-box;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid #202b46;
+    border-radius: 7px;
+    outline: none;
+
+    font-size: 13px;
+    transition: border-color 0.2s;
+}
+
+.campo input::placeholder {
+    color: #7788a5;
+}
+
+.campo input:focus {
+    border-color: #27d3e5;
+}
+
+/* RECUPERAR CONTRASEÑA */
+
+.recuperar {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 30px;
+}
+
+.recuperar a {
+    color: #27d3e5;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* BOTÓN */
+
+.boton {
+    width: 100%;
+    height: 43px;
+    margin-top: 8%;
+    background: #27d3e5;
+    color: #00152a;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background 0.2s;
+}
+
+.boton:hover {
+    background: #53e1ed;
+}
+
+/* REGISTRO */
+
+.registro {
+    margin: 25px 0 0;
+    text-align: center;
+    color: #c3cde0;
+    font-size: 13px;
+}
+
+.registro a {
+    color: #27d3e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.version {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    color: #9aaccb;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+    .contenido {
+        max-width: 100%;
+        gap: 30px;
+    }
+
+    .formulario {
+        padding: 30px 23px;
+    }
+
+    .formulario h1 {
+        font-size: 20px;
+    }
+
+    .logo img {
+        width: 155px;
+    }
+}

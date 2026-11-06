@@ -5,16 +5,18 @@ import style from "./Layout.module.css";
 
 function LayoutFacilitador() {
     return (
-        <div>
+        <div className={style.layout}>
             <MenuFacilitador />
+
             <div className={style.main}>
-                <TopBar /> 
+                <TopBar />
+
                 <div className={style.contenido}>
                     <Outlet />
                 </div>
             </div>
         </div>
     );
-};
+}
 
-export default LayoutFacilitador;   
+export default LayoutFacilitador;

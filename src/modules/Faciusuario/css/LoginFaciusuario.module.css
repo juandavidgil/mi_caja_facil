@@ -1,0 +1,485 @@
+
+.loginPage {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 30px 18px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: #014cc5;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginPage *,
+.loginPage *::before,
+.loginPage *::after {
+  box-sizing: border-box;
+}
+
+/* Marca */
+.encabezado {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.logo span {
+  color: #059742;
+}
+
+/* Contenedor */
+.loginContenido {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Tarjeta translúcida */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid rgb(255 255 255 / 42%);
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 20%),
+    rgb(255 255 255 / 8%)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 15px 40px rgb(0 20 75 / 22%);
+  box-sizing: border-box;
+}
+
+/* Encabezado de la tarjeta */
+.formularioEncabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.formularioEncabezado h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.formularioEncabezado p {
+  margin: 7px 0 0;
+  color: rgb(255 255 255 / 82%);
+  font-size: 14px;
+}
+
+.iconoUsuario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 13%);
+  color: #ffffff;
+  font-size: 25px;
+}
+
+/* Campos */
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+}
+
+.campo label {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.inputContenedor {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0 15px;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 13px;
+  background: rgb(255 255 255 / 9%);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.inputContenedor:focus-within {
+  border-color: #ffca42;
+  background: rgb(255 255 255 / 15%);
+  box-shadow: 0 0 0 3px rgb(255 181 27 / 15%);
+}
+
+.iconoCampo {
+  flex-shrink: 0;
+  color: rgb(255 255 255 / 85%);
+  font-size: 17px;
+}
+
+.inputContenedor input {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  padding: 13px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.inputContenedor input::placeholder {
+  color: rgb(255 255 255 / 72%);
+}
+
+.inputContenedor input:focus {
+  outline: none;
+}
+
+.botonVer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 6px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* Recuperación */
+.recuperar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+}
+
+.enlaceRecuperar {
+  padding: 4px 0;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.enlaceRecuperar:hover {
+  color: #0daf35;
+}
+
+/* Botón principal */
+.botonIngresar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 51px;
+  padding: 12px 18px;
+  border: 1px solid #ffdc68;
+  border-radius: 12px;
+  background: linear-gradient(100deg, #ffb51b, #ffc52e);
+  color: #073b91;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 7px 20px rgb(0 20 70 / 15%);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.botonIngresar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgb(0 20 70 / 22%);
+}
+
+.botonIngresar svg {
+  font-size: 17px;
+}
+
+/* Separador */
+.separador {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.separador span {
+  flex: 1;
+  height: 1px;
+  background: rgb(255 255 255 / 55%);
+}
+
+.separador p {
+  margin: 0;
+  color: rgb(255 255 255 / 90%);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Acceso alternativo */
+.botonFacilitador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 7%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.botonFacilitador:hover {
+  border-color: #ffffff;
+  background: rgb(255 255 255 / 16%);
+}
+
+.botonIngresar:focus-visible,
+.botonFacilitador:focus-visible,
+.enlaceRecuperar:focus-visible,
+.botonVer:focus-visible {
+  outline: 3px solid #ffcf58;
+  outline-offset: 4px;
+}
+
+/* Tabletas y celulares */
+@media (max-width: 600px) {
+  .loginPage {
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .formulario {
+    max-width: 390px;
+    padding: 24px 21px;
+    gap: 16px;
+    border-radius: 21px;
+  }
+
+  .formularioEncabezado h2 {
+    font-size: 25px;
+  }
+
+  .iconoUsuario {
+    width: 50px;
+    height: 50px;
+    font-size: 21px;
+  }
+
+  .inputContenedor {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 360px) {
+  .formulario {
+    padding: 20px 16px;
+  }
+
+  .logo {
+    font-size: 29px;
+  }
+
+  .formularioEncabezado h2 {
+    font-size: 23px;
+  }
+
+  .inputContenedor {
+    gap: 9px;
+    padding: 0 11px;
+  }
+
+  .inputContenedor input {
+    font-size: 12px;
+  }
+}
+/* =================================
+   AJUSTE: FORMULARIO MÁS COMPACTO
+================================= */
+
+/* Tarjeta principal */
+.formulario {
+  max-width: 360px;
+  padding: 22px;
+  gap: 13px;
+  border-radius: 20px;
+}
+
+/* Encabezado */
+.formularioEncabezado h2 {
+  font-size: 24px;
+}
+
+.formularioEncabezado p {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Icono de usuario */
+.iconoUsuario {
+  width: 46px;
+  height: 46px;
+  font-size: 20px;
+}
+
+/* Espacio entre campos */
+.campos {
+  gap: 12px;
+}
+
+.campo {
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 12px;
+}
+
+/* Inputs */
+.inputContenedor {
+  min-height: 43px;
+  padding: 0 12px;
+  border-radius: 10px;
+}
+
+.inputContenedor input {
+  font-size: 13px;
+  padding: 10px 0;
+}
+
+/* Recuperar contraseña */
+.enlaceRecuperar {
+  font-size: 12px;
+}
+
+/* Botón ingresar */
+.botonIngresar {
+  min-height: 44px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+/* Separador */
+.separador p {
+  font-size: 11px;
+}
+
+/* Acceso facilitador */
+.botonFacilitador {
+  min-height: 42px;
+  padding: 9px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.formularioEncabezado h2 {
+  font-size: 21px;
+}
+
+.formularioEncabezado p {
+  font-size: 12px;
+}
+
+.iconoUsuario {
+  width: 38px;
+  height: 38px;
+  font-size: 17px;
+}
+
+.campos {
+  gap: 10px;
+}
+
+.campo {
+  gap: 5px;
+}
+
+.campo label {
+  font-size: 11px;
+}
+
+.inputContenedor {
+  min-height: 38px;
+  padding: 0 10px;
+  border-radius: 9px;
+}
+
+.inputContenedor input {
+  font-size: 12px;
+  padding: 8px 0;
+}
+
+.botonIngresar {
+  min-height: 39px;
+  font-size: 13px;
+  padding: 8px;
+}
+
+.botonFacilitador {
+  min-height: 37px;
+  font-size: 12px;
+  padding: 8px;
+}
+
+.enlaceRecuperar {
+  font-size: 11px;
+}

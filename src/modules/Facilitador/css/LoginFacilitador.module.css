@@ -2,6 +2,9 @@
 /* ========================================
    MI CAJA FÁCIL - LOGIN
 ======================================== */
+
+
+
 .loginPage {
   position: relative;
   isolation: isolate;
@@ -9,21 +12,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
 
-  padding: 24px;
+  padding: 30px 20px 40px;
   overflow-x: hidden;
 
   background-color: #0648b7;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 100%;
+  background-size: cover;
 
-  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
@@ -35,42 +36,81 @@
 
 .loginContenido {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
-  align-items: center;
   justify-content: center;
 
   width: 100%;
-  margin: 0;
+  margin-top: 220px;
 }
 
 .formulario {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 13px;
 
   width: 100%;
-  max-width: 465px;
+  max-width: 390px;
+  min-width: 0;
 
   margin: 0 auto;
-  padding: 32px 38px;
+  padding: 26px 28px;
 
-  border: 1px solid rgb(255 255 255 / 75%);
-  border-radius: 19px;
+  border: 1px solid #edf1f7;
+  border-radius: 18px;
 
   background: #ffffff;
   color: #102b63;
 
-  box-shadow: 0 20px 60px rgb(0 25 90 / 20%);
+  box-shadow: 0 15px 40px rgb(0 25 90 / 18%);
 }
 
 
-.loginPage *,
-.loginPage *::before,
-.loginPage *::after {
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+  min-width: 0;
   box-sizing: border-box;
 }
+
+.inputContenedor {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 43px;
+  padding: 0 12px;
+  border: 1px solid #dce4f0;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #24334a;
+  font-family: inherit;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.inputContenedor:has(.botonOjo) .input {
+  padding-right: 42px;
+}
+
+.botonOjo {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+
 
 /* ========================================
    PAISAJE DE BOGOTÁ

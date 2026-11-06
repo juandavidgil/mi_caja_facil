@@ -18,6 +18,7 @@ import Ajustes from './modules/Facilitador/pages/Ajustes';
 import LoginFaciusuario from './modules/Faciusuario/pages/LoginFaciusuario';
 import InicioFaciusuario from './modules/Faciusuario/pages/InicioFaciusuario';
 import Legalizacion from './modules/Faciusuario/pages/Legalizacion';
+import MiCajaPrueba from './modules/Facilitador/pages/MiCajaPrueba';
 
 function App() {
   return (
@@ -25,8 +26,13 @@ function App() {
 
       <Routes>
 
-        <Route
+         <Route
           path='/'
+          element={<MiCajaPrueba />}
+        />
+
+        <Route
+          path='/login'
           element={<LoginFacilitador />}
         />
 
@@ -35,46 +41,49 @@ function App() {
           element={<LoginFaciusuario />}
         />
 
+{/* BARRA LATERAL FACILITADOR */}
         <Route element={<LayoutFacilitador />}>
 
+            <Route
+              path='/inicio'
+              element={< Inicio />}
+            />
 
-          <Route
-            path='/inicio'
-            element={< Inicio />}
-          />
+            <Route
+              path='/movimientos'
+              element={< Movimientos />}
+            />
 
-          <Route
-            path='/movimientos'
-            element={< Movimientos />}
-          />
+            <Route
+              path='/fondos'
+              element={< Fondos />}
+            />
 
-          <Route
-            path='/fondos'
-            element={< Fondos />}
-          />
+            <Route
+              path='/reportes'
+              element={< Reportes />}
+            />
 
-          <Route
-            path='/reportes'
-            element={< Reportes />}
-          />
-
-          <Route
-            path='/ajustes'
-            element={< Ajustes />}
+            <Route
+              path='/ajustes'
+              element={< Ajustes />}
           />
 
         </Route>
+{/* BARRA LATERAL USUARIO  */}
 
-          <Route
-            element={<InicioFaciusuario />}
-            path='/inicio-faciusuario'
-          />
         <Route element={<LayoutFaciusuario />}>
+
+            <Route
+              element={<InicioFaciusuario />}
+              path='/inicio-faciusuario'
+            />
+            <Route
+              element={<Legalizacion />}
+              path='/legalizacion'
+            />
         </Route>
-        <Route
-          element={<Legalizacion />}
-          path='/legalizacion'
-        />
+
 
 
       </Routes>
