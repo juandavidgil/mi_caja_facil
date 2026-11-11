@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 
 import micajafacil from "../assets/logo1.png";
 
-import inicio from "../assets/inicio.png";
-import movimientos from "../assets/movimientos.png";
-import fondos from "../assets/fondos.png";
-import reportes from "../assets/reportes.png";
-import ajustes from "../assets/ajustes.png";
+import dashboard from "../assets/inicio.png";
+import nuevaSolicitud from "../assets/movimientos.png";
+import misSolicitudes from "../assets/fondos.png";
+import misBeneficios from "../assets/reportes.png";
+import miPerfil from "../assets/ajustes.png";
 import salida from "../assets/salida.png";
 
 import style from "./css/MenuFacilitador.module.css";
@@ -25,8 +25,9 @@ function MenuFacilitador() {
                 />
             </div>
 
-            {/* MENÚ DE NAVEGACIÓN */}
+            {/* MENÚ DE SOLICITUDES */}
             <nav className={style.menu}>
+
 
                 <NavLink
                     to="/inicio"
@@ -34,48 +35,48 @@ function MenuFacilitador() {
                         isActive ? style.active : style.link
                     }
                 >
-                    <img src={inicio} alt="" />
-                    <span>Inicio</span>
+                    <img src={dashboard} alt="" />
+                    <span>Dashboard</span>
                 </NavLink>
 
                 <NavLink
-                    to="/movimientos"
+                    to="/nueva-solicitud"
                     className={({ isActive }) =>
                         isActive ? style.active : style.link
                     }
                 >
-                    <img src={movimientos} alt="" />
-                    <span>Movimientos</span>
+                    <img src={nuevaSolicitud} alt="" />
+                    <span>Nueva Solicitud</span>
                 </NavLink>
 
                 <NavLink
-                    to="/fondos"
+                    to="/mis-solicitudes"
                     className={({ isActive }) =>
                         isActive ? style.active : style.link
                     }
                 >
-                    <img src={fondos} alt="" />
-                    <span>Fondos</span>
+                    <img src={misSolicitudes} alt="" />
+                    <span>Mis Solicitudes</span>
                 </NavLink>
 
                 <NavLink
-                    to="/reportes"
+                    to="/mis-beneficios"
                     className={({ isActive }) =>
                         isActive ? style.active : style.link
                     }
                 >
-                    <img src={reportes} alt="" />
-                    <span>Reportes</span>
+                    <img src={misBeneficios} alt="" />
+                    <span>Mis Beneficios</span>
                 </NavLink>
 
                 <NavLink
-                    to="/ajustes"
+                    to="/mi-perfil"
                     className={({ isActive }) =>
                         isActive ? style.active : style.link
                     }
                 >
-                    <img src={ajustes} alt="" />
-                    <span>Ajustes</span>
+                    <img src={miPerfil} alt="" />
+                    <span>Mi Perfil</span>
                 </NavLink>
 
                 <div className={style.separador}></div>

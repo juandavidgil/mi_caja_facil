@@ -21,7 +21,7 @@ function Inicio() {
       >
         <div>
           <h1 className={style.titulo}>
-            Bienvenido, a tu caja facil Juan 👋
+            Bienvenido, a tu caja facil Juan Diego 👋
           </h1>
 
           <p className={style.subtitulo}>

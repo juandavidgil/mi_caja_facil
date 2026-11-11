@@ -338,3 +338,53 @@
     margin-left: auto;
   }
 }
+/* =====================================
+   ORGANIZACIÓN DE PERFILES
+===================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.modal {
+    width: 100%;
+    max-width: 760px;
+    padding: 28px;
+
+    max-height: none;
+    overflow: visible;
+
+    box-sizing: border-box;
+}
+
+.listaPerfiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .overlay {
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .modal {
+        padding: 20px 15px;
+    }
+
+    .listaPerfiles {
+        grid-template-columns: 1fr;
+    }
+}

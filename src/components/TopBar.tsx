@@ -31,7 +31,7 @@ return (
                         alt="Usuario"
                     />
 
-                    <span>Juan David Gil Alvear</span>
+                    <span>Juan Diego Rodríguez Borrero</span>
                 </div>
                 
             </div>

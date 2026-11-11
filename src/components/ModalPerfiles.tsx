@@ -15,20 +15,40 @@ interface ModalPerfilesProps {
   onContinuar: (perfil: Perfil) => void;
 }
 
+
 const perfilesIniciales: Perfil[] = [
   {
     id: 1,
-    nombre: "Administrador",
-    descripcion: "Administración y configuración general.",
+    nombre: "Tesorero",
+    descripcion: "Entrega el dinero y registra los desembolsos.",
     codigo: "Perfil 1",
   },
   {
     id: 2,
-    nombre: "Responsable de caja",
-    descripcion: "Gestión de puntos, movimientos y legalizaciones.",
+    nombre: "Auditor",
+    descripcion: "Revisa y autoriza solicitudes y legalizaciones.",
     codigo: "Perfil 2",
   },
+  {
+    id: 3,
+    nombre: "Beneficiario",
+    descripcion: "Recibe el dinero, realiza compras y legaliza gastos.",
+    codigo: "Perfil 3",
+  },
+  {
+    id: 4,
+    nombre: "Solicitante",
+    descripcion: "Crea solicitudes de fondos para un beneficiario.",
+    codigo: "Perfil 4",
+  },
+  {
+    id: 5,
+    nombre: "Responsable de caja",
+    descripcion: "Gestiona los puntos de caja, movimientos y legalizaciones.",
+    codigo: "Perfil 5",
+  },
 ];
+
 
 function ModalPerfiles({
   nombreUsuario,

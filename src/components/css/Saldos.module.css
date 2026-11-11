@@ -1,46 +1,65 @@
+
+/* =====================================
+   MI CAJA FÁCIL - TARJETAS DE SALDOS
+   IDENTIDAD VISUAL AZUL CORPORATIVA
+===================================== */
+
 .Saldos {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    width: 70%;
+    margin: 20px 0 30px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
-.SaldoDisponible {
-    flex: 1;
-    padding: 25px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: white;
-    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.25);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+/* TARJETAS */
 
-.SaldoDisponible:hover {
-    transform: translateY(-5px);
-}
-
+.SaldoDisponible,
 .TotalGastos {
-    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
     padding: 25px;
     border-radius: 20px;
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-    color: white;
-    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.25);
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+    background: linear-gradient(
+        145deg,
+        #07132f,
+        #030b22
+    );
+
+    border: 1px solid #1c2b4d;
+    border-left: 4px solid #27d3e5;
+
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
+/* EFECTO HOVER */
+
+.SaldoDisponible:hover,
 .TotalGastos:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
+
+/* TÍTULOS */
 
 .cardTitulo {
     margin: 0;
     font-size: 16px;
     font-weight: 600;
+    color: #d5e6ff;
 }
+
+/* VALORES */
 
 .cardValor {
     margin: 15px 0;
@@ -48,43 +67,55 @@
     font-weight: 700;
 }
 
+/* SALDO DISPONIBLE: VERDE */
+
+.SaldoDisponible .cardValor {
+    color: #22c55e;
+}
+
+/* TOTAL GASTOS: ROJO */
+
+.TotalGastos .cardValor {
+    color: #ef4444;
+}
+
+/* FECHAS */
+
 .cardFecha {
     margin: 0;
     font-size: 14px;
-    opacity: 0.9;
+    color: #a8b7d5;
 }
+
+/* ICONOS */
 
 .cardIcon {
     font-size: 35px;
-    opacity: .25;
+    color: #27d3e5;
+    opacity: 0.8;
     margin-bottom: 15px;
 }
 
-.SaldoDisponible,
-.TotalGastos {
-    position: relative;
-    overflow: hidden;
-}
+/* EFECTO DE BRILLO */
 
 .SaldoDisponible::before,
 .TotalGastos::before {
-    content: '';
-
+    content: "";
     position: absolute;
-
     width: 200%;
     height: 200%;
-
     top: -100%;
     left: -100%;
 
-    background:
-        linear-gradient(45deg,
-            transparent,
-            rgba(255, 255, 255, .15),
-            transparent);
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(39, 211, 229, 0.08),
+        transparent
+    );
 
-    transition: .8s;
+    transition: 0.8s;
+    pointer-events: none;
 }
 
 .SaldoDisponible:hover::before,
@@ -95,18 +126,19 @@
 
 /* RESPONSIVE */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .Saldos {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .SaldoDisponible,
+    .TotalGastos {
+        padding: 20px;
     }
 
-    .secciones {
-        flex-direction: column;
+    .cardValor {
+        font-size: 30px;
     }
-
-    .balance,
-    .transacciones {
-        width: 100%;
-    }
-
 }

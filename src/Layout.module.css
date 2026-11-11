@@ -1,31 +1,58 @@
-/* CONTENEDOR GENERAL */
+/* =====================================
+   LAYOUT GENERAL - MI CAJA FÁCIL
+===================================== */
+
 .layout {
     display: flex;
     width: 100%;
     min-height: 100vh;
-    background: #f4f7fc;
+
+    background: linear-gradient(
+        120deg,
+        #087ee0 0%,
+        #0860d5 45%,
+        #1036ad 100%
+    );
 }
 
 /* CONTENIDO PRINCIPAL */
+
 .main {
     flex: 1;
     min-width: 0;
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
-    background: #f4f7fc;
+
+    background: linear-gradient(
+        120deg,
+        #087ee0 0%,
+        #0860d5 45%,
+        #1036ad 100%
+    );
 }
 
 /* ÁREA DONDE SE CARGAN LAS PÁGINAS */
+
 .contenido {
     flex: 1;
     width: 100%;
+    min-width: 0;
+
     padding: 25px;
     box-sizing: border-box;
-    background: #f4f7fc;
+
+    background: linear-gradient(
+        120deg,
+        #087ee0 0%,
+        #0860d5 45%,
+        #1036ad 100%
+    );
 }
 
 /* RESPONSIVE */
+
 @media (max-width: 768px) {
     .contenido {
         padding: 15px;
