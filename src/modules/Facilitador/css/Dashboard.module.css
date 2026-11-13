@@ -1,0 +1,479 @@
+
+/* =====================================
+   DASHBOARD - PERFIL SOLICITANTE
+   MI CAJA FÁCIL
+===================================== */
+
+.container {
+    width: 100%;
+    max-width: 1600px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 5px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+/* BIENVENIDA */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.titulo {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 750;
+}
+
+.subtitulo {
+    margin: 0;
+    color: #e1edff;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* INDICADORES */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.statCard {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    padding: 22px 18px;
+
+    background: linear-gradient(145deg, #0b1938, #06132c);
+    border: 1px solid #1c2b4d;
+    border-left: 4px solid #27d3e5;
+    border-radius: 17px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-3px);
+}
+
+.statIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    font-size: 21px;
+}
+
+.azul {
+    background: rgba(39, 211, 229, 0.13);
+    color: #27d3e5;
+}
+
+.amarillo {
+    background: rgba(250, 204, 21, 0.13);
+    color: #facc15;
+}
+
+.verde {
+    background: rgba(34, 197, 94, 0.13);
+    color: #22c55e;
+}
+
+.rojo {
+    background: rgba(239, 68, 68, 0.13);
+    color: #ef4444;
+}
+
+.statInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.statInfo span {
+    color: #c4d5ef;
+    font-size: 13px;
+}
+
+.statInfo strong {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 750;
+}
+
+.statInfo small {
+    color: #8fa5c7;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* RESUMEN DE BENEFICIOS */
+
+.beneficios {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    padding: 24px;
+    margin-bottom: 25px;
+
+    background: linear-gradient(145deg, #0b1938, #06132c);
+    border: 1px solid #1c2b4d;
+    border-left: 4px solid #27d3e5;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.beneficioInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.beneficioIcono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    background: rgba(39, 211, 229, 0.13);
+    color: #27d3e5;
+    font-size: 23px;
+}
+
+.beneficioInfo h2 {
+    margin: 0 0 6px;
+    color: #ffffff;
+    font-size: 19px;
+}
+
+.beneficioInfo p {
+    margin: 0;
+    color: #9aa9c7;
+    font-size: 13px;
+}
+
+.beneficioValores {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.beneficioValores div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.beneficioValores span {
+    color: #a8b7d5;
+    font-size: 13px;
+}
+
+.beneficioValores strong {
+    color: #ffffff;
+    font-size: 21px;
+}
+
+.beneficioValores .disponible {
+    color: #22c55e;
+}
+
+/* SECCIONES INFERIORES */
+
+.secciones {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.solicitudes,
+.actividad {
+    min-width: 0;
+    padding: 24px;
+
+    background: #07132f;
+    border: 1px solid #1c2b4d;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* ENCABEZADOS DE SECCIONES */
+
+.seccionHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.seccionHeader h2 {
+    margin: 0 0 7px;
+    color: #ffffff;
+    font-size: 19px;
+}
+
+.seccionHeader p {
+    margin: 0;
+    color: #9aa9c7;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.seccionHeader > svg {
+    color: #27d3e5;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+/* SOLICITUDES */
+
+.listaSolicitudes {
+    display: flex;
+    flex-direction: column;
+}
+
+.solicitud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 5px;
+    border-bottom: 1px solid #1c2b4d;
+}
+
+.solicitud:last-child {
+    border-bottom: none;
+}
+
+.solicitudInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.solicitudInfo strong {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.solicitudInfo span,
+.solicitudInfo small {
+    color: #9aa9c7;
+    font-size: 12px;
+}
+
+.solicitudDetalle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 9px;
+    flex-shrink: 0;
+}
+
+.solicitudDetalle > strong {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.estado {
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.revision {
+    background: rgba(250, 204, 21, 0.13);
+    color: #facc15;
+}
+
+.aprobada {
+    background: rgba(34, 197, 94, 0.13);
+    color: #22c55e;
+}
+
+.rechazada {
+    background: rgba(239, 68, 68, 0.13);
+    color: #ef4444;
+}
+
+/* ACTIVIDAD RECIENTE */
+
+.listaActividades {
+    display: flex;
+    flex-direction: column;
+}
+
+.actividadItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 17px 0;
+    border-bottom: 1px solid #1c2b4d;
+}
+
+.actividadItem:last-child {
+    border-bottom: none;
+}
+
+.actividadIcono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    font-size: 16px;
+}
+
+.actividadAzul {
+    background: rgba(39, 211, 229, 0.13);
+    color: #27d3e5;
+}
+
+.actividadVerde {
+    background: rgba(34, 197, 94, 0.13);
+    color: #22c55e;
+}
+
+.actividadAmarilla {
+    background: rgba(250, 204, 21, 0.13);
+    color: #facc15;
+}
+
+.actividadTexto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.actividadTexto strong {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.actividadTexto span {
+    color: #a8b7d5;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.actividadTexto small {
+    color: #7186a8;
+    font-size: 11px;
+}
+
+/* NOTA DE DATOS */
+
+.nota {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 20px 0 5px;
+    color: #d5e6ff;
+    font-size: 12px;
+}
+
+.nota svg {
+    color: #27d3e5;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1150px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .beneficioValores {
+        gap: 22px;
+    }
+
+    .secciones {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        padding: 0;
+    }
+
+    .titulo {
+        font-size: 24px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .statCard {
+        padding: 17px;
+    }
+
+    .beneficios {
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .beneficioValores {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 17px;
+    }
+
+    .beneficioValores div {
+        padding-bottom: 12px;
+        border-bottom: 1px solid #1c2b4d;
+    }
+
+    .solicitudes,
+    .actividad {
+        padding: 17px;
+    }
+
+    .solicitud {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .solicitudDetalle {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+}

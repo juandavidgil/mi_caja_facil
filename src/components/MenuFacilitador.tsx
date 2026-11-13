@@ -30,7 +30,7 @@ function MenuFacilitador() {
 
 
                 <NavLink
-                    to="/inicio"
+                    to="/dashboard"
                     className={({ isActive }) =>
                         isActive ? style.active : style.link
                     }

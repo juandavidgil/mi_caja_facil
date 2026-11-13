@@ -8,8 +8,8 @@ import LayoutFacilitador from './LayoutFacilitador';
 import LayoutFaciusuario from './LayoutFaciusuario';
 /* FACILITADOR */
 import LoginFacilitador from "./modules/Facilitador/pages/LoginFacilitador";
-import Inicio from './modules/Facilitador/pages/Inicio';
-import Movimientos from './modules/Facilitador/pages/Movimientos';
+import Dashboard from './modules/Facilitador/pages/Dashboard';
+import NuevaSolicitud from './modules/Facilitador/pages/NuevaSolicitud';
 import Fondos from './modules/Facilitador/pages/Fondos';
 import Reportes from './modules/Facilitador/pages/Reportes';
 import Ajustes from './modules/Facilitador/pages/Ajustes';
@@ -45,27 +45,27 @@ function App() {
         <Route element={<LayoutFacilitador />}>
 
             <Route
-              path='/inicio'
-              element={< Inicio />}
+              path='/Dashboard'
+              element={< Dashboard />}
             />
 
             <Route
-              path='/movimientos'
-              element={< Movimientos />}
+              path='/nueva-solicitud'
+              element={< NuevaSolicitud />}
             />
 
             <Route
-              path='/fondos'
+              path='/mis-solicitudes'
               element={< Fondos />}
             />
 
             <Route
-              path='/reportes'
+              path='/mis-beneficios'
               element={< Reportes />}
             />
 
             <Route
-              path='/ajustes'
+              path='/mi-perfil'
               element={< Ajustes />}
           />
 

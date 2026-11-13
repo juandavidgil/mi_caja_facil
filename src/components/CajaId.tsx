@@ -1,8 +1,20 @@
+
+import { FaWallet } from "react-icons/fa";
 import style from "./css/CajaId.module.css";
-export default function CajaId() {
+
+interface CajaIdProps {
+    codigo?: string;
+}
+
+export default function CajaId({ codigo = "001" }: CajaIdProps) {
     return (
-        <h2 className={style.CajaId}>
-            Caja #001
-        </h2>
+        <div className={style.CajaId}>
+            <FaWallet className={style.icono} />
+
+            <div className={style.informacion}>
+                <span>Caja </span>
+                <strong>#{codigo}</strong>
+            </div>
+        </div>
     );
-};
+}

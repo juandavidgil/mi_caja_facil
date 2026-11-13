@@ -1,15 +1,36 @@
-.CajaId{
-    background:#eff6ff;
-    color:#2563eb;
 
-    border:1px solid #bfdbfe;
+.CajaId {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-    padding:10px 18px;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #e8f2ff
+    );
 
-    border-radius:12px;
+    color: #014cc5;
+    border: 1px solid #bfdbfe;
+    border-left: 4px solid #27d3e5;
 
-    font-size:1rem;
-    font-weight:700;
+    padding: 11px 20px;
+    border-radius: 12px;
 
-    width:max-content;
+    font-size: 16px;
+    font-weight: 700;
+
+    width: max-content;
+    white-space: nowrap;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.CajaId:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
 }

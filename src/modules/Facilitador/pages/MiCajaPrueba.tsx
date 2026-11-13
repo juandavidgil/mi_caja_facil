@@ -23,7 +23,7 @@ const navigate = useNavigate()
   const continuarConPerfil = (perfil: any) => {
     setMostrarModal(false);
 
-    navigate("/inicio", {
+    navigate("/dashboard", {
       state: { perfil },
     });
   };
