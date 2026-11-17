@@ -1,267 +1,570 @@
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
 .container {
-    padding: 5px;
-    background: #f8fafc;
+    position: relative;
+    width: 100%;
     min-height: 100vh;
-    max-width: 1600px;
+    padding: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+    isolation: isolate;
+    color: #ffffff;
 }
 
-.hero{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
+.glowBlue,
+.glowGreen {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: -1;
 }
+
+.glowBlue {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    right: -100px;
+    background: #20d5e8;
+    opacity: 0.08;
+}
+
+.glowGreen {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    left: -100px;
+    background: #16c784;
+    opacity: 0.07;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 25px;
+}
+
+.headerInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.headerInfo h1 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 750;
+}
+
+.headerInfo p {
+    margin: 0;
+    color: #d3e7ff;
+    font-size: 14px;
+}
+
+/* =========================================
+   RESUMEN POR CATEGORÍA
+========================================= */
 
 .resumen {
+    position: relative;
+    z-index: 1;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+
+    margin-bottom: 25px;
 }
 
 .resumenCard {
-    position: relative;
-    background: white;
-    border-radius: 20px;
-    padding: 0px 20px;
-    border: 1px solid #e2e8f0;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all .4s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    padding: 17px;
+    min-width: 0;
+
+    background: #061633;
+    border: 1px solid #16365f;
+    border-left: 4px solid #20d5e8;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+
+    transition: box-shadow 0.25s ease;
+}
+
+.resumenCard:hover {
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
 }
 
 .informacionCard {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+
+    background: rgba(32, 213, 232, 0.12);
+    border: 1px solid rgba(32, 213, 232, 0.15);
+    border-radius: 13px;
 }
 
 .icono {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
-    padding: 12px;
-    border-radius: 20px;
-    background: #eff6ff;
-    flex-shrink: 0;
 }
 
 .textoCard {
     display: flex;
     flex-direction: column;
+    gap: 5px;
+    min-width: 0;
 }
 
-.textoCard h4 {
+.textoCard h3 {
     margin: 0;
-    font-size: 20px;
-    color: #64748b;
+    color: #dceaff;
+    font-size: 13px;
     font-weight: 600;
 }
 
-.textoCard span {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
+.textoCard strong {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 750;
 }
 
-.resumenCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(37,99,235,.15);
+/* =========================================
+   FILTROS Y BOTONES
+========================================= */
+
+.ContainerFiltrosBotones {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(230px, 1fr);
+    align-items: stretch;
+    gap: 20px;
+
+    margin-bottom: 25px;
 }
 
-.resumenCard::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -100%;
-    left: -100%;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(37,99,235,.08),
-        transparent
-    );
-    transition: .8s;
+/* TARJETA DE FILTROS */
+
+.informeCard {
+    padding: 24px;
+
+    background: #061633;
+    border: 1px solid #16365f;
+    border-left: 4px solid #20d5e8;
+    border-radius: 17px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
 
-.resumenCard:hover::before {
-    top: 100%;
-    left: 100%;
+.cardTitle {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 22px;
 }
-.iconContainer {
-    width: 40px;
-    height: 60px;
-    border-radius: 15px;
-    background: #eff6ff;
+
+.titleIcon {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    color: #2563eb;
-    margin: 10px;
-    margin-right: 15px;
-}
-.secciones {
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
 
-/* BALANCE HISTÓRICO */
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
 
-.metricas{
-    flex:2;
-    min-height:400px;
-    background:white;
-    border-radius:24px;
-    padding:25px;
-    border:1px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(0,0,0,.05);
-    overflow:hidden;
+    background: rgba(32, 213, 232, 0.13);
+    border: 1px solid rgba(32, 213, 232, 0.18);
+    border-radius: 12px;
+
+    color: #20d5e8;
+    font-size: 17px;
 }
 
-.metricas h2 {
-    margin-top: 0;
-    color: #1e293b;
+.cardTitle h2 {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: 18px;
 }
 
-.fakeChart{
-    height:300px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.cardTitle p {
+    margin: 0;
+    color: #9db5d5;
+    font-size: 12px;
 }
 
-.chartLine{
-    width:90%;
+/* CAMPOS DE FECHA */
 
-    height:180px;
-
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-        180deg,
-        rgba(37,99,235,.25),
-        rgba(37,99,235,.03)
-    );
-
-    animation:
-    pulseChart 3s ease infinite;
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+    align-items: end;
+    gap: 15px;
 }
 
-@keyframes pulseChart{
-
-    0%,100%{
-        transform:scaleY(1);
-    }
-
-    50%{
-        transform:scaleY(1.05);
-    }
-
-}
-@media(max-width:900px){
-
-    .hero{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-}
-
-
-.informeCard {
-    background:rgba(255,255,255,.75);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.5);
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.06);
-    border-radius:24px;
-}
-
-.informeCard{
-    width: 50%;
-    padding:25px;
-    margin-bottom:25px;
-}
-
-.cardTitle{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:20px;
-}
-
-.cardTitle svg{
-    color:#2563eb;
-    font-size:1.3rem;
-}
-
-.formGrid{
-    display:flex;
-    gap:20px;
-    align-items:end;
-    flex-wrap:wrap;
-}
-
-.formGrid div{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.formGrid label{
-    font-weight:600;
-    color:#334155;
-}
-
-.formGrid input{
-    padding:12px;
-    border:1px solid #dbeafe;
-    border-radius:12px;
-    min-width:180px;
-}
-
-.formGrid button{
-    padding:12px 22px;
-    border:none;
-    border-radius:12px;
-    background-color: #22c55e;
-    color:white;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.ContainerFiltrosBotones {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.ContainerButtons {
-    margin-top: 65px;
-    width: 40%;
+.formGroup {
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    min-width: 0;
 }
 
-button {
+.formGroup label {
+    color: #dceaff;
+    font-size: 12px;
+    font-weight: 650;
+}
 
-    padding: 12px 20px;
-    border-radius: 12px;
+.formGroup input {
+    width: 100%;
+    min-width: 0;
+    height: 45px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+
+    background: #0b2041;
+    border: 1px solid #29476e;
+    border-radius: 10px;
+
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+
+    outline: none;
+    color-scheme: dark;
+
+    transition: 0.2s ease;
+}
+
+.formGroup input:focus {
+    background: #10294f;
+    border-color: #20d5e8;
+    box-shadow: 0 0 0 3px rgba(32, 213, 232, 0.12);
+}
+
+/* BOTÓN FILTRAR */
+
+.btnFiltrar {
+    height: 45px;
+    padding: 0 20px;
+
+    background: linear-gradient(120deg, #0789e8, #014cc5);
+    border: 1px solid #1598f4;
+    border-radius: 10px;
+
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
     cursor: pointer;
-    color: white;
-    background-color: #22c55e;
-    font-weight: 600;
+}
+
+/* =========================================
+   BOTONES DE EXPORTACIÓN
+========================================= */
+
+.ContainerButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 20px;
+
+    background: #061633;
+    border: 1px solid #16365f;
+    border-radius: 17px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.ContainerButtons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 43px;
+    padding: 11px 15px;
+
     border: none;
-    margin-bottom: 10px;
+    border-radius: 10px;
+
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.ContainerButtons button:hover {
+    filter: brightness(1.12);
+}
+
+.btnExcel {
+    background: linear-gradient(120deg, #16a765, #0b8e55);
+}
+
+.btnPdf {
+    background: linear-gradient(120deg, #ed4545, #c92737);
+}
+
+.btnEmail {
+    background: linear-gradient(120deg, #0789e8, #014cc5);
+}
+
+/* =========================================
+   SECCIÓN DE GRÁFICAS
+========================================= */
+
+.secciones {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* TARJETA DE CADA GRÁFICA */
+
+.metricas {
+    min-width: 0;
+    min-height: 300px;
+    padding: 23px;
+
+    box-sizing: border-box;
+
+    background: #061633;
+    border: 1px solid #16365f;
+    border-left: 4px solid #20d5e8;
+    border-radius: 17px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+
+    transition: box-shadow 0.25s ease;
+}
+
+.metricas:hover {
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.metricasHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.metricasHeader h2 {
+    margin: 0 0 6px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.metricasHeader p {
+    margin: 0;
+    color: #91afd5;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.metricasHeader > svg {
+    flex-shrink: 0;
+    color: #20d5e8;
+    font-size: 21px;
+}
+
+/* =========================================
+   ESPACIO DE GRÁFICAS DEMOSTRATIVAS
+========================================= */
+
+.fakeChart {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+
+    background: #0b2041;
+    border: 1px solid #203e67;
+    border-radius: 13px;
+}
+
+.fakeChart span {
+    color: #91afd5;
+    font-size: 12px;
+    text-align: center;
+}
+
+.chartLine {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(32, 213, 232, 0.10),
+            rgba(32, 213, 232, 0.01)
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .resumen {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .ContainerFiltrosBotones {
+        grid-template-columns: 1fr;
+    }
+
+    .ContainerButtons {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .secciones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* =========================================
+   RESPONSIVE - TABLET PEQUEÑA
+========================================= */
+
+@media (max-width: 750px) {
+
+    .container {
+        padding: 18px;
+    }
+
+    .formGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .btnFiltrar {
+        grid-column: 1 / -1;
+    }
+
+    .secciones {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================
+   RESPONSIVE - CELULAR
+========================================= */
+
+@media (max-width: 550px) {
+
+    .container {
+        padding: 14px;
+    }
+
+    .headerInfo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .headerInfo h1 {
+        font-size: 23px;
+    }
+
+    .resumen {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .resumenCard {
+        padding: 16px;
+    }
+
+    .informeCard {
+        padding: 19px 16px;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .btnFiltrar {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .ContainerButtons {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .metricas {
+        min-height: 270px;
+        padding: 19px;
+    }
+
+    .fakeChart {
+        height: 170px;
+    }
+
+}
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .resumenCard,
+    .resumenCard:hover,
+    .metricas,
+    .metricas:hover,
+    .ContainerButtons button,
+    .formGroup input {
+        transition: none;
+    }
+
+}

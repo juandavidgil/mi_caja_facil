@@ -10,7 +10,7 @@ import LayoutFaciusuario from './LayoutFaciusuario';
 import LoginFacilitador from "./modules/Facilitador/pages/LoginFacilitador";
 import Dashboard from './modules/Facilitador/pages/Dashboard';
 import NuevaSolicitud from './modules/Facilitador/pages/NuevaSolicitud';
-import Fondos from './modules/Facilitador/pages/Fondos';
+import MisSolicitudes from "./modules/Facilitador/pages/MisSolicitudes"
 import Reportes from './modules/Facilitador/pages/Reportes';
 import Ajustes from './modules/Facilitador/pages/Ajustes';
 
@@ -55,9 +55,9 @@ function App() {
             />
 
             <Route
-              path='/mis-solicitudes'
-              element={< Fondos />}
-            />
+    path="/mis-solicitudes"
+    element={<MisSolicitudes />}
+/>
 
             <Route
               path='/mis-beneficios'
