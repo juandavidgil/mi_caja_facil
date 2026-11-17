@@ -9,17 +9,13 @@
 
     /* Fondo degradado de Mi Caja Fácil */
     background:
-        radial-gradient(
-            ellipse at 15% 15%,
+        radial-gradient(ellipse at 15% 15%,
             rgba(0, 220, 255, 0.35),
-            transparent 40%
-        ),
-        linear-gradient(
-            120deg,
+            transparent 40%),
+        linear-gradient(120deg,
             #087de8 0%,
             #0648dc 45%,
-            #071b91 100%
-        );
+            #071b91 100%);
 }
 
 .contenido {
@@ -50,7 +46,7 @@
     height: auto;
     margin-left: 20%;
     margin-bottom: 2%;
-    
+
 }
 
 .formulario {
@@ -177,6 +173,29 @@
     text-align: center;
     color: #9aaccb;
     font-size: 12px;
+}
+
+.campo {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.inputError input {
+    border: 1px solid #dc2626 !important;
+}
+
+.error {
+    display: block;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.errorGeneral {
+    color: #dc2626;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
 }
 
 /* RESPONSIVE */

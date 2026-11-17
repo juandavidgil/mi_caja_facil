@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-
+import { useAuth } from "../../../context/AuthContext";
 import {
     FaFileAlt,
     FaClock,
@@ -105,6 +105,7 @@ const actividades = [
 ];
 
 function Dashboard() {
+    const { usuario, perfilActivo } = useAuth();
     return (
         <div className={style.container}>
 
@@ -117,7 +118,7 @@ function Dashboard() {
             >
                 <div>
                     <h1 className={style.titulo}>
-                        ¡Bienvenido, Juan Diego! 👋
+                        ¡Bienvenido, {usuario?.nombreCompleto ?? "Usuario"}! 👋
                     </h1>
 
                     <p className={style.subtitulo}>

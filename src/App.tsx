@@ -3,11 +3,10 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-
+import { AuthProvider } from "./context/AuthContext";
 import LayoutFacilitador from './LayoutFacilitador';
 import LayoutFaciusuario from './LayoutFaciusuario';
 /* FACILITADOR */
-import LoginFacilitador from "./modules/Facilitador/pages/LoginFacilitador";
 import Dashboard from './modules/Facilitador/pages/Dashboard';
 import NuevaSolicitud from './modules/Facilitador/pages/NuevaSolicitud';
 import MisSolicitudes from "./modules/Facilitador/pages/MisSolicitudes"
@@ -23,26 +22,21 @@ import MiCajaPrueba from './modules/Facilitador/pages/MiCajaPrueba';
 function App() {
   return (
     <Router>
+      <AuthProvider>
+        <Routes>
 
-      <Routes>
+          <Route
+            path='/'
+            element={<MiCajaPrueba />}
+          />
 
-         <Route
-          path='/'
-          element={<MiCajaPrueba />}
-        />
+          <Route
+            path='/login_faciusuario'
+            element={<LoginFaciusuario />}
+          />
 
-        <Route
-          path='/login'
-          element={<LoginFacilitador />}
-        />
-
-        <Route
-          path='/login_faciusuario'
-          element={<LoginFaciusuario />}
-        />
-
-{/* BARRA LATERAL FACILITADOR */}
-        <Route element={<LayoutFacilitador />}>
+          {/* BARRA LATERAL FACILITADOR */}
+          <Route element={<LayoutFacilitador />}>
 
             <Route
               path='/Dashboard'
@@ -55,9 +49,9 @@ function App() {
             />
 
             <Route
-    path="/mis-solicitudes"
-    element={<MisSolicitudes />}
-/>
+              path="/mis-solicitudes"
+              element={<MisSolicitudes />}
+            />
 
             <Route
               path='/mis-beneficios'
@@ -67,12 +61,12 @@ function App() {
             <Route
               path='/mi-perfil'
               element={< Ajustes />}
-          />
+            />
 
-        </Route>
-{/* BARRA LATERAL USUARIO  */}
+          </Route>
+          {/* BARRA LATERAL USUARIO  */}
 
-        <Route element={<LayoutFaciusuario />}>
+          <Route element={<LayoutFaciusuario />}>
 
             <Route
               element={<InicioFaciusuario />}
@@ -82,12 +76,12 @@ function App() {
               element={<Legalizacion />}
               path='/legalizacion'
             />
-        </Route>
+          </Route>
 
 
 
-      </Routes>
-
+        </Routes>
+      </AuthProvider>
     </Router>
 
   )

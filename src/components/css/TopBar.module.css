@@ -80,6 +80,27 @@
     font-weight: 600;
 }
 
+/* PERFIL */
+
+.perfilActivo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 16px;
+    border: 1px solid #f8faff;
+    border-radius: 30px;
+    background: #424e3f;
+    color: #ffffff;
+}
+
+
+.perfilActivo span {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 768px) {

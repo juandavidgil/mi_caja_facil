@@ -1,66 +1,65 @@
 
 import { motion } from "framer-motion";
-import { useState } from 'react';
+import { useState } from "react";
 import style from "../css/MiCajaPrueba.module.css";
 import Logo from "../../../assets/logo1.png";
-import Input from "../../../components/Input"
-import ModalPerfiles from "../../../components/ModalPerfiles";
-import { Link, useNavigate } from "react-router-dom";
+import Input from "../../../components/Input";
+import ModalPerfiles from "../../../components/modalPerdiles/ModalPerfiles";
+import { useModalPerfiles } from "../../../components/modalPerdiles/hooks/useModalPerfiles";
+import { useNavigate } from "react-router-dom";
+import { useLogin } from "../hooks/useLogin";
 
 function MiCajaPrueba() {
+    const navigate = useNavigate();
+    const [mostrarModal, setMostrarModal] = useState(false);
 
-const navigate = useNavigate()
+    const {
+        documento,
+        setDocumento,
+        contraseña,
+        setContraseña,
+        Ingresar,
+        loading,
+        errores,
+        errorGeneral,
+        setErrores,
+        continuarConPerfil,
+        perfiles
+    } = useLogin(setMostrarModal, navigate);
 
- const [mostrarModal, setMostrarModal] = useState(false);
- const [documento, setDocumento ] = useState("");
-
-  // Abrir modal al ingresar
-  const Ingresar = () => {
-    setMostrarModal(true);
-  };
-
-  // Continuar después de seleccionar un perfil
-  const continuarConPerfil = (perfil: any) => {
-    setMostrarModal(false);
-
-    navigate("/dashboard", {
-      state: { perfil },
-    });
-  };
     return (
         <>
-        {mostrarModal && (
-      <ModalPerfiles
-        nombreUsuario="Facilitador"
-        onContinuar={continuarConPerfil}
-      />
-    )}
-            <div className={style.pantalla}>
+            <ModalPerfiles
+                mostrar={mostrarModal}
+                perfiles={perfiles}
+                onContinuar={continuarConPerfil}
+            />
 
+            <div className={style.pantalla}>
                 <motion.div
                     className={style.contenido}
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-
-
                     <div className={style.containerFormulario}>
-                        <img
-                            className={style.logo}
-                            src={Logo}
-                        />
-                        <div className={style.formulario}>
+                        <img className={style.logo} src={Logo} alt="Logo Mi Caja Fácil" />
 
+                        <div className={style.formulario}>
                             <h1>¡Bienvenido de nuevo!</h1>
 
                             <p className={style.descripcion}>
                                 Ingresa a tu cuenta de Mi Caja Fácil
                             </p>
 
-                            <form>
 
 
+                            <form
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    Ingresar();
+                                }}
+                            >
                                 <Input
                                     label="Documento de identidad"
                                     name="documento"
@@ -68,7 +67,17 @@ const navigate = useNavigate()
                                     placeholder="Ingrese su documento"
                                     autoComplete="username"
                                     required
+                                    value={documento}
+                                    error={errores.documento}
+                                    onChange={(e) => {
+                                        setDocumento(e.target.value);
+                                        setErrores(prev => ({
+                                            ...prev,
+                                            documento: ""
+                                        }));
+                                    }}
                                 />
+
                                 <Input
                                     label="Contraseña"
                                     name="contrasena"
@@ -76,27 +85,40 @@ const navigate = useNavigate()
                                     placeholder="Ingrese su contraseña"
                                     autoComplete="current-password"
                                     required
+                                    value={contraseña}
+                                    error={errores.contraseña}
+                                    onChange={(e) => {
+                                        setContraseña(e.target.value);
+                                        setErrores(prev => ({
+                                            ...prev,
+                                            contraseña: ""
+                                        }));
+                                    }}
                                 />
 
-
-                                <button 
-                                onClick={Ingresar}
-                                type="button" className={style.boton}>
-                                    Ingresar
+                                <button
+                                    type="submit"
+                                    className={style.boton}
+                                    disabled={loading}
+                                >
+                                    {loading ? "Ingresando..." : "Ingresar"}
                                 </button>
 
-                                <p className={style.registro}>
-                                    <a href="#">Olvide mi contraseña</a>
-                                </p>
+                                {errorGeneral && (
+                                    <p className={style.errorGeneral}>
+                                        {errorGeneral}
+                                    </p>
+                                )}
 
+                                <p className={style.registro}>
+                                    <a href="#">Olvidé mi contraseña</a>
+                                </p>
                             </form>
 
 
                         </div>
                     </div>
-
                 </motion.div>
-
             </div>
         </>
     );

@@ -49,9 +49,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 ? "text"
                 : type
             }
-            className={`${styles.input} ${className ?? ""} ${
-              error ? styles.inputError : ""
-            }`}
+            className={`${styles.input} ${className ?? ""} ${error ? styles.inputError : ""
+              }`}
             aria-invalid={Boolean(error)}
             aria-describedby={
               error ? `${inputId}-error` : undefined
