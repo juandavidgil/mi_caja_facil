@@ -1,11 +1,11 @@
 
 import { createContext, useContext, useState, type ReactNode } from "react";
-import type { Usuario, Perfil } from "../modules/Facilitador/interfaces/Auth";
+import type { UsuarioLogin, Perfil } from "../modules/Facilitador/interfaces/Auth";
 
 interface AuthContextType {
-    usuario: Usuario | null;
+    usuario: UsuarioLogin | null;
     perfilActivo: Perfil | null;
-    guardarUsuario: (usuario: Usuario) => void;
+    guardarUsuario: (usuario: UsuarioLogin) => void;
     guardarPerfilActivo: (perfil: Perfil) => void;
     cerrarSesion: () => void;
 }
@@ -13,10 +13,10 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-    const [usuario, setUsuario] = useState<Usuario | null>(null);
+    const [usuario, setUsuario] = useState<UsuarioLogin | null>(null);
     const [perfilActivo, setPerfilActivo] = useState<Perfil | null>(null);
 
-    const guardarUsuario = (usuario: Usuario) => {
+    const guardarUsuario = (usuario: UsuarioLogin) => {
         setUsuario(usuario);
     };
 

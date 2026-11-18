@@ -1,13 +1,9 @@
 
-import { useState } from "react";
-import type { ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
-
+import type { Beneficiarios, Ciudades } from "../interfaces/Solicitud";
 import {
     FaFileAlt,
-    FaMapMarkerAlt,
-    FaCalendarAlt,
-    FaMoneyBillWave,
+
     FaUser,
     FaUsers,
     FaInfoCircle,
@@ -17,120 +13,37 @@ import {
 
 import style from "../css/NuevaSolicitud.module.css";
 import CajaId from "../../../components/CajaId";
-
-/*
- * IMPORTANTE:
- * Estos catálogos deben cargarse desde la base de datos.
- * No agregues IDs ficticios: los valores deben corresponder
- * a los registros reales de tus tablas relacionadas.
- */
-
-interface OpcionCatalogo {
-    id: number;
-    nombre: string;
-}
-
-// Reemplazar posteriormente por los datos de los catálogos.
-const tiposSolicitud: OpcionCatalogo[] = [];
-const ciudades: OpcionCatalogo[] = [];
-const beneficiarios: OpcionCatalogo[] = [];
-
-interface FormularioSolicitud {
-    tipo_solicitud_id: string;
-    fecha_solicitud: string;
-    ciudad_id: string;
-    descripcion: string;
-    monto_solicitado: string;
-    beneficiario: string;
-}
-
+import { useNuevaSolicitud } from "../hooks/useNuevaSolicitud";
 function NuevaSolicitud() {
 
-    const [formulario, setFormulario] = useState<FormularioSolicitud>({
-        tipo_solicitud_id: "",
-        fecha_solicitud: new Date().toLocaleDateString("en-CA"),
-        ciudad_id: "",
-        descripcion: "",
-        monto_solicitado: "",
-        beneficiario: ""
-    });
+    const {
+        beneficiarios,
+        setBeneficiarios,
+        montoSolicitado,
+        setMontoSolicitado,
+        monedas,
+        setMonedas,
+        ciudades,
+        setCiudades,
+        descripcion,
+        setDescripcion,
+        beneficiarioSeleccionado,
+        setBeneficiarioSeleccionado,
+        monedaSeleccionada,
+        setMonedaSeleccionada,
+        ciudadSeleccionada,
+        setCiudadSeleccionada,
+        loading
+    } = useNuevaSolicitud();
 
-    const [mensaje, setMensaje] = useState("");
-    const [tipoMensaje, setTipoMensaje] = useState<"error" | "success">("error");
 
-    const manejarCambio = (
-        e: ChangeEvent<
-            HTMLInputElement |
-            HTMLTextAreaElement |
-            HTMLSelectElement
-        >
-    ) => {
-        const { name, value } = e.target;
+    const formatearMonto = (valor: string) => {
+    const soloNumeros = valor.replace(/\D/g, "");
 
-        setFormulario((anterior) => ({
-            ...anterior,
-            [name]: value
-        }));
+    if (!soloNumeros) return "";
 
-        setMensaje("");
-    };
-
-    const formatearValor = (valor: string) => {
-        if (!valor) return "";
-
-        return Number(valor).toLocaleString("es-CO");
-    };
-
-    const limpiarFormulario = () => {
-        setFormulario({
-            tipo_solicitud_id: "",
-            fecha_solicitud: new Date().toLocaleDateString("en-CA"),
-            ciudad_id: "",
-            descripcion: "",
-            monto_solicitado: "",
-            beneficiario: ""
-        });
-
-        setMensaje("");
-    };
-
-    const manejarEnvio = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        if (Number(formulario.monto_solicitado) <= 0) {
-            setTipoMensaje("error");
-            setMensaje("El monto solicitado debe ser mayor que cero.");
-            return;
-        }
-
-        /*
-         * Los campos id, created_at, numero_solicitud,
-         * solicitante, moneda_id y estado_trx_id deben
-         * ser asignados por el backend o según los catálogos.
-         */
-
-        const datosSolicitud = {
-            tipo_solicitud_id: Number(formulario.tipo_solicitud_id),
-            numero_solicitud: null, // Generar en backend
-            fecha_solicitud: formulario.fecha_solicitud,
-            ciudad_id: Number(formulario.ciudad_id),
-            descripcion: formulario.descripcion.trim(),
-            monto_solicitado: Number(formulario.monto_solicitado),
-            beneficiario: Number(formulario.beneficiario),
-
-            // Pendientes de asignación desde autenticación/configuración:
-            solicitante: null,
-            moneda_id: null,
-            estado_trx_id: null
-        };
-
-        console.log("Datos preparados para Transaccion:", datosSolicitud);
-
-        setTipoMensaje("success");
-        setMensaje(
-            "Formulario validado. Los datos están listos para conectarse al backend."
-        );
-    };
+    return Number(soloNumeros).toLocaleString("es-CO");
+};
 
     return (
         <section className={style.container}>
@@ -158,7 +71,7 @@ function NuevaSolicitud() {
                 </div>
             </motion.header>
 
-            <form onSubmit={manejarEnvio}>
+            <div>
 
                 {/* TARJETA 1: INFORMACIÓN GENERAL */}
 
@@ -190,50 +103,6 @@ function NuevaSolicitud() {
 
                     <div className={style.formGrid}>
 
-                        <div className={style.formGroup}>
-                            <label htmlFor="tipo_solicitud_id">
-                                Tipo de solicitud *
-                            </label>
-
-                            <select
-                                id="tipo_solicitud_id"
-                                name="tipo_solicitud_id"
-                                value={formulario.tipo_solicitud_id}
-                                onChange={manejarCambio}
-                                required
-                            >
-                                <option value="">
-                                    Selecciona un tipo de solicitud
-                                </option>
-
-                                {tiposSolicitud.map((tipo) => (
-                                    <option key={tipo.id} value={tipo.id}>
-                                        {tipo.nombre}
-                                    </option>
-                                ))}
-                            </select>
-
-                            {tiposSolicitud.length === 0 && (
-                                <small className={style.ayuda}>
-                                    Pendiente conectar el catálogo de tipos.
-                                </small>
-                            )}
-                        </div>
-
-                        <div className={style.formGroup}>
-                            <label htmlFor="fecha_solicitud">
-                                Fecha de solicitud *
-                            </label>
-
-                            <input
-                                id="fecha_solicitud"
-                                type="date"
-                                name="fecha_solicitud"
-                                value={formulario.fecha_solicitud}
-                                onChange={manejarCambio}
-                                required
-                            />
-                        </div>
 
                         <div className={style.formGroup}>
                             <label htmlFor="ciudad_id">
@@ -243,15 +112,15 @@ function NuevaSolicitud() {
                             <select
                                 id="ciudad_id"
                                 name="ciudad_id"
-                                value={formulario.ciudad_id}
-                                onChange={manejarCambio}
+                                value={ciudadSeleccionada}
+                                onChange={(e) => {setCiudadSeleccionada(e.target.value)}}
                                 required
                             >
                                 <option value="">
                                     Selecciona una ciudad
                                 </option>
 
-                                {ciudades.map((ciudad) => (
+                                {ciudades.map((ciudad: Ciudades) => (
                                     <option key={ciudad.id} value={ciudad.id}>
                                         {ciudad.nombre}
                                     </option>
@@ -277,15 +146,15 @@ function NuevaSolicitud() {
                                 min="1"
                                 step="1"
                                 placeholder="Ej. 500000"
-                                value={formulario.monto_solicitado}
-                                onChange={manejarCambio}
+                                value={montoSolicitado}
+                                onChange={(e) => {setMontoSolicitado(e.target.value)}}
                                 required
                             />
 
-                            {formulario.monto_solicitado &&
-                                Number(formulario.monto_solicitado) > 0 && (
+                            {montoSolicitado &&
+                                Number(montoSolicitado) > 0 && (
                                     <small className={style.valorTexto}>
-                                        ${formatearValor(formulario.monto_solicitado)} COP
+                                        ${formatearMonto(montoSolicitado)} COP
                                     </small>
                                 )}
                         </div>
@@ -325,13 +194,13 @@ function NuevaSolicitud() {
                             rows={5}
                             maxLength={1000}
                             placeholder="Describe detalladamente los recursos que necesitas..."
-                            value={formulario.descripcion}
-                            onChange={manejarCambio}
+                            value={descripcion}
+                            onChange={(e) => {setDescripcion(e.target.value)}}
                             required
                         />
 
                         <small>
-                            {formulario.descripcion.length}/1000 caracteres
+                            {descripcion.length}/1000 caracteres
                         </small>
                     </div>
                 </motion.section>
@@ -365,17 +234,17 @@ function NuevaSolicitud() {
                         <select
                             id="beneficiario"
                             name="beneficiario"
-                            value={formulario.beneficiario}
-                            onChange={manejarCambio}
+                            value={beneficiarioSeleccionado}
+                            onChange={(e) => {setBeneficiarioSeleccionado(e.target.value)}}
                             required
                         >
                             <option value="">
                                 Selecciona un beneficiario
                             </option>
 
-                            {beneficiarios.map((persona) => (
-                                <option key={persona.id} value={persona.id}>
-                                    {persona.nombre}
+                            {beneficiarios.map((beneficiario: Beneficiarios) => (
+                                <option key={beneficiario.id} value={beneficiario.id}>
+                                    {beneficiario.nombreCompleto}
                                 </option>
                             ))}
                         </select>
@@ -409,22 +278,6 @@ function NuevaSolicitud() {
                     </div>
                 </motion.section>
 
-                {/* MENSAJE */}
-
-                {mensaje && (
-                    <motion.div
-                        className={`${style.mensaje} ${
-                            tipoMensaje === "success"
-                                ? style.mensajeExito
-                                : style.mensajeError
-                        }`}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                    >
-                        <FaInfoCircle />
-                        {mensaje}
-                    </motion.div>
-                )}
 
                 {/* BOTONES */}
 
@@ -432,7 +285,7 @@ function NuevaSolicitud() {
                     <button
                         type="button"
                         className={style.btnCancelar}
-                        onClick={limpiarFormulario}
+                        /* onClick={limpiarFormulario} */
                     >
                         <FaEraser />
                         Limpiar formulario
@@ -449,7 +302,7 @@ function NuevaSolicitud() {
                     </motion.button>
                 </div>
 
-            </form>
+            </div>
         </section>
     );
 }

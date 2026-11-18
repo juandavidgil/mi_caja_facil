@@ -3,13 +3,18 @@ import { url } from "../config/URL";
 
 export interface ApiOptions extends RequestInit {
     responseType?: "json" | "blob";
+    token?: string;
 }
 
 async function request<T>(
     endpoint: string,
     options: ApiOptions = {}
 ): Promise<T> {
-    const { responseType = "json", ...fetchOptions } = options;
+    const {
+        responseType = "json",
+        token,
+        ...fetchOptions
+    } = options;
 
     const response = await fetch(`${url}${endpoint}`, {
         ...fetchOptions,
@@ -17,6 +22,9 @@ async function request<T>(
             ...(fetchOptions.body instanceof FormData
                 ? {}
                 : { "Content-Type": "application/json" }),
+            ...(token
+                ? { Authorization: `Bearer ${token}` }
+                : {}),
             ...fetchOptions.headers,
         },
     });

@@ -1,8 +1,15 @@
-import { iniciarSesion } from "../services/authService";
+import { iniciarSesion, seleccionarPerfil } from "../services/authService";
 
 export async function loginController(
-    documento: string,
+     documento: string,
     contraseña: string
+    ) {
+        return await iniciarSesion(documento, contraseña);
+    }
+
+export async function seleccionarPerfilController(
+    perfilId: number,
+    tokenTemporal: string
 ) {
-    return await iniciarSesion(documento, contraseña);
+    return await seleccionarPerfil(perfilId, tokenTemporal);
 }
