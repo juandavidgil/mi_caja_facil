@@ -1,16 +1,16 @@
 
 import { NavLink } from "react-router-dom";
 
-import micajafacil from "../assets/logo1.png";
+import micajafacil from "../../assets/logo1.png";
 
-import dashboard from "../assets/inicio.png";
-import nuevaSolicitud from "../assets/movimientos.png";
-import misSolicitudes from "../assets/fondos.png";
-import misBeneficios from "../assets/reportes.png";
-import miPerfil from "../assets/ajustes.png";
-import salida from "../assets/salida.png";
+import dashboard from "../../assets/inicio.png";
+import nuevaSolicitud from "../../assets/movimientos.png";
+import misSolicitudes from "../../assets/fondos.png";
+import misBeneficios from "../../assets/reportes.png";
+import miPerfil from "../../assets/ajustes.png";
+import salida from "../../assets/salida.png";
 
-import style from "./css/MenuFacilitador.module.css";
+import style from "./Menu.module.css";
 
 function MenuAuditor() {
     return (

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import MenuAuditor from "./components/MenuAuditor";
-import TopBar from "./components/TopBar";
+import MenuAuditor from "../components/Menus/MenuAuditor";
+import TopBar from "../components/TopBar";
 import style from "./Layout.module.css";
 
 function LayoutAuditor() {

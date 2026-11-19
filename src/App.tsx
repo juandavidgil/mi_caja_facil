@@ -4,21 +4,16 @@ import {
   Route
 } from 'react-router-dom';
 import { AuthProvider } from "./context/AuthContext";
-import LayoutFacilitador from './LayoutFacilitador';
-import LayoutFaciusuario from './LayoutFaciusuario';
-import LayoutAuditor from './LayoutAuditor';
-/* FACILITADOR */
-import Dashboard from './modules/Facilitador/pages/Dashboard';
-import NuevaSolicitud from './modules/Facilitador/pages/NuevaSolicitud';
-import MisSolicitudes from "./modules/Facilitador/pages/MisSolicitudes"
-import Reportes from './modules/Facilitador/pages/Reportes';
-import Ajustes from './modules/Facilitador/pages/Ajustes';
+import LayoutSolicitante from './Layaouts/LayoutSolicitante';
+import LayoutAuditor from './Layaouts/LayoutAuditor';
+/* Solicitante */
+import Dashboard from './modules/Solicitante/pages/Dashboard';
+import NuevaSolicitud from './modules/Solicitante/pages/NuevaSolicitud';
+import MisSolicitudes from "./modules/Solicitante/pages/MisSolicitudes"
+import Reportes from './modules/Solicitante/pages/Reportes';
+import Ajustes from './modules/Solicitante/pages/Ajustes';
 
-/* FACIUSUARIO */
-import LoginFaciusuario from './modules/Faciusuario/pages/LoginFaciusuario';
-import InicioFaciusuario from './modules/Faciusuario/pages/InicioFaciusuario';
-import Legalizacion from './modules/Faciusuario/pages/Legalizacion';
-import MiCajaPrueba from './modules/Facilitador/pages/MiCajaPrueba';
+import Login from "./modules/Login/pages/Login";
 import DashboardAuditor from './modules/Auditor/pages/DashboardAuditor';
 
 function App() {
@@ -29,16 +24,12 @@ function App() {
 
           <Route
             path='/'
-            element={<MiCajaPrueba />}
+            element={<Login />}
           />
 
-          <Route
-            path='/login_faciusuario'
-            element={<LoginFaciusuario />}
-          />
-
-          {/* BARRA LATERAL FACILITADOR */}
-          <Route element={<LayoutFacilitador />}>
+  
+          {/* LAYAOUT SOLICITANTE */}
+          <Route element={<LayoutSolicitante />}>
 
             <Route
               path='/Dashboard'
@@ -74,21 +65,6 @@ function App() {
               element={< DashboardAuditor />}
             />
           </Route>
-
-          {/* BARRA LATERAL USUARIO  */}
-
-          <Route element={<LayoutFaciusuario />}>
-
-            <Route
-              element={<InicioFaciusuario />}
-              path='/inicio-faciusuario'
-            />
-            <Route
-              element={<Legalizacion />}
-              path='/legalizacion'
-            />
-          </Route>
-
 
 
         </Routes>
