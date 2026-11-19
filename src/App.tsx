@@ -6,6 +6,7 @@ import {
 import { AuthProvider } from "./context/AuthContext";
 import LayoutFacilitador from './LayoutFacilitador';
 import LayoutFaciusuario from './LayoutFaciusuario';
+import LayoutAuditor from './LayoutAuditor';
 /* FACILITADOR */
 import Dashboard from './modules/Facilitador/pages/Dashboard';
 import NuevaSolicitud from './modules/Facilitador/pages/NuevaSolicitud';
@@ -18,6 +19,7 @@ import LoginFaciusuario from './modules/Faciusuario/pages/LoginFaciusuario';
 import InicioFaciusuario from './modules/Faciusuario/pages/InicioFaciusuario';
 import Legalizacion from './modules/Faciusuario/pages/Legalizacion';
 import MiCajaPrueba from './modules/Facilitador/pages/MiCajaPrueba';
+import DashboardAuditor from './modules/Auditor/pages/DashboardAuditor';
 
 function App() {
   return (
@@ -64,6 +66,15 @@ function App() {
             />
 
           </Route>
+
+          {/* LAYAOUT AUDITOR  */}
+          <Route element={<LayoutAuditor />}>
+            <Route
+              path='/dashboard-auditor'
+              element={< DashboardAuditor />}
+            />
+          </Route>
+
           {/* BARRA LATERAL USUARIO  */}
 
           <Route element={<LayoutFaciusuario />}>

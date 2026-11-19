@@ -139,7 +139,7 @@ export function useLogin(
             setTokenTemporal("");
             setMostrarModal(false);
 
-            navigate("/Dashboard");
+            navigate("/dashboard-auditor");
 
         } catch (error) {
             console.error("Error al seleccionar perfil:", error);
